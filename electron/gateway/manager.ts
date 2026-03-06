@@ -949,6 +949,8 @@ export class GatewayManager extends EventEmitter {
         PATH: finalPath,
         ...uvEnv,
         OPENCLAW_NO_RESPAWN: '1',
+        OPENCLAW_SKIP_CHANNELS: '*',
+        CLAWDBOT_SKIP_CHANNELS: '*',
       };
 
       const child = utilityProcess.fork(entryScript, doctorArgs, {
@@ -1144,8 +1146,8 @@ export class GatewayManager extends EventEmitter {
         ...uvEnv,
         ...proxyEnv,
         OPENCLAW_GATEWAY_TOKEN: gatewayToken,
-        OPENCLAW_SKIP_CHANNELS: '',
-        CLAWDBOT_SKIP_CHANNELS: '',
+        OPENCLAW_SKIP_CHANNELS: '*',
+        CLAWDBOT_SKIP_CHANNELS: '*',
         // Prevent OpenClaw from respawning itself inside the utility process
         OPENCLAW_NO_RESPAWN: '1',
       };
